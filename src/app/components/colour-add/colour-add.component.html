@@ -1,0 +1,27 @@
+<div class="content">
+    <div class="col-md-12">
+         <div class="card">
+             <div class="card-header"><h5 class="title">Renk Ekle</h5></div>
+             <div class="card">
+            <div class="card-body">
+                <form [formGroup]="colorAddForm">
+                    <div class="mb-3">
+                        <label for="colorName">Renk Adı</label>
+                        <div class="form-group">
+                            <input type="text" 
+                            id="colorName" 
+                            formControlName="color_name" class="form-control" 
+                            placeholder="Bir renk giriniz"/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer" >
+                <button class="btn btn-fill btn-success" (click)="add()" >EKLE</button>
+                <button class="btn btn-danger"  routerLink="/cars">İPTAL</button>
+            </div>
+        </div>      
+    </div>   
+</div>
+
+

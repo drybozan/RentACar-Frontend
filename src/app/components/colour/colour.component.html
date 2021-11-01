@@ -1,0 +1,31 @@
+    <div class="mb-3">
+      <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Renk Ara">
+    </div>
+    
+    <div *ngIf="filterText" class="alert alert-primary">
+        {{filterText}} aradınız.
+    </div>
+<table  class="table">
+    <thead>
+        <tr>
+            
+            <th>RENKLER</th>
+        </tr>
+    </thead>
+    <tr (click) = "setAllColor()"[class]="getAllColorClass()" routerLink ="/cars"
+    style="background-color: rgb(180, 175, 175); font-size: 0.5cm;"> Tüm Renkler</tr>
+    <tr >        
+      <td (click)="setCurrentColor(color)" routerLink="/cars/color/{{color.color_id}}"
+      *ngFor="let color of colors | colorPipe:filterText| paginate: { itemsPerPage: count, currentPage: p }"  
+      [class]="getCurrentColorClass(color)">{{color.color_name | uppercase}}</td>          
+  </tr>
+  <div class="mb-12" >  
+    <button type="button" class="btn btn-success" style="margin: 4px; " routerLink="colours/add">Ekle</button> 
+    <button type="button" class="btn btn-danger" style="margin: 6px; " routerLink="colours/delete">Sil</button>
+    
+    </div>
+</table>
+  <!--Including the pagination control.-->
+  <div class="text-right">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>

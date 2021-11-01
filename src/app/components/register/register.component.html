@@ -1,0 +1,80 @@
+    <body class="text-center">
+        <main class="form-signin" >
+          <form [formGroup]="registerForm">
+            <img
+              class="mb-4"
+              src="https://insulation.org/wp-content/uploads/2016/09/Add-a-person-noun_6478.png"
+              alt=""
+              width="250"
+              height="250"
+            />
+           
+      
+            <div class="form-floating ">
+              <input
+                formControlName="firstname"
+                type="text"
+                class="form-control"
+                id="floatingInput"
+                placeholder="isim giriniz"
+                              
+              />
+              <label for="floatingInput">İsim</label>
+            </div><br>
+            <div class="form-floating ">
+                <input
+                  formControlName="lastname"
+                  type="text"
+                  class="form-control"
+                  id="floatingInput2"
+                  placeholder="Soyisim giriniz"
+                 
+                />
+                <label for="floatingInput2">Soyisim</label>
+              </div><br>
+              <div class="form-floating ">
+                <input
+                  formControlName="email"
+                  type="email"
+                  class="form-control"
+                  id="floatingInput3"
+                  placeholder="name@example.com"
+                
+                />
+                <label for="floatingInput">Email</label>
+              </div>
+            <br>
+            <div class="form-floating">
+              <input
+              formControlName="password"
+                type="password"
+                class="form-control"
+                id="floatingPassword"
+                placeholder="Password"
+               
+              />
+              <label for="floatingPassword">Şifre</label>
+            </div><br>
+
+            <div class="form-floating">
+                <input
+                formControlName="passwordRepeat"
+                  type="password"
+                  class="form-control"
+                  id="floatingPassword2"
+                  placeholder="Password Repeat"
+                 
+                />
+                <label for="floatingPassword2">Şifre Tekrar</label>
+              </div>
+      
+            <br>
+            <button class="w-30 btn btn-lg btn-success" (click)="register()"  >
+             KAYIT OL
+            </button>
+            <p class="mt-5 mb-3 text-muted">RentACar &copy; 2021</p>
+          </form>
+      
+        </main>
+      </body>
+    

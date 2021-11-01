@@ -1,0 +1,43 @@
+<div><button class="btn btn-warning" style="margin: 20 px ; padding-right: 10px; padding-left: 10px; font-size: larger;" routerLink="/cars">Anasayfaya Dön</button></div>
+<br>
+
+
+<div class="container" style="margin:auto;">
+    <div class="row">
+<div class="col">
+        <table class="table">
+    <thead>
+      <tr >
+        <th scope="col">Araba adı</th>
+        <th scope="col">Marka</th>
+        <th scope="col">Renk</th>
+        <th scope="col">Model</th>
+        <th scope="col">Günlük Kira Bedeli</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let car of cars">        
+        <td>{{car.car_name | uppercase}}</td>
+        <td>{{car.brand_id}}</td>
+        <td>{{car.color_id}}</td>
+        <td>{{car.model_year }}</td>
+        <td>{{car.daily_price}}</td>
+        <td>
+        <div class="row">
+            <div class="col">
+                <div class="button-group" style="float: right;">          
+                <button class="btn btn-danger" style="margin-left: 25px;" (click)="deleteCar(car)">Sil</button>
+            </div>
+            </div>
+        </div>
+        
+    </td>
+      </tr>
+     
+    </tbody>
+  </table>
+</div>
+</div>
+
+</div>

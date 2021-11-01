@@ -1,0 +1,90 @@
+<div class="filter">
+    <div class="row">
+      <div class="col-md-5">
+        <select class="form-select" id="brandselect" [(ngModel)]="currentBrandId">
+          <option [ngValue]="undefined" disabled selected>
+            --- Marka Seç ---
+          </option>
+          <option
+            *ngFor="let brand of brands"
+            [value]="brand.brand_id"
+            [selected]="setCurrentBrand(brand.brand_id)"
+          >
+            {{ brand.brand_name }}
+          </option>
+        </select>
+      </div>
+      <div class="col-md-5">
+        <select class="form-select" id="colorselect" [(ngModel)]="currentColorId">
+          <option [ngValue]="undefined" disabled selected>
+            --- Renk Seç ---
+          </option>
+          <option
+            *ngFor="let colour of colours"
+            [value]="colour.color_id"
+            [selected]="setCurrentColor(colour.color_id)"
+          >
+            {{ colour.color_name }}
+          </option>
+        </select>
+      </div>
+      <div class="col-md-1">
+        <button
+          class="btn btn-danger"
+          routerLink="/cars/filter/{{ currentBrandId }}/{{ currentColorId }}"
+        >
+          Filtrele
+        </button>
+      </div> 
+      <div class="col-md-1" >
+          <button class="btn btn-warning" routerLink="/cars">Temizle</button>
+        </div>
+    </div>
+  </div> 
+<br>
+  <div class="mb-3">  
+      <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Araba Ara">
+    </div>
+    
+    <div *ngIf="filterText" class="alert alert-primary">
+        {{filterText}} aradınız.
+    </div>
+   
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>ARABA ADI</th>
+            <th>MARKA</th>
+            <th>RENK</th>
+            <th>GÜNLÜK KİRA BEDELİ</th>
+            <th>MODELi</th>
+            <th>DETAY</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr  *ngFor="let car of cars | carPipe:filterText| paginate: { itemsPerPage: count, currentPage: p }" > 
+      <td>{{car.car_id}}</td>
+        <td> {{car.car_name | uppercase}}</td>
+        <td>{{car.brand_name | uppercase}}</td>
+        <td>{{car.color_name | uppercase}}</td>
+        <td>{{car.daily_price}}</td>
+        <td>{{car.model_year}}</td>
+        <td><a class="btn btn-primary " style="color: black;" 
+            routerLink="/cars/carDetails/{{car.car_id}}"  
+            role="button" style="background-color: rgb(255, 153, 0);">ARABANIN DETAYI</a></td>
+        <td><button (click)="addToCart(car)" type="button" style="background-color: rgb(219, 21, 14);" class="btn btn-success">KİRALA </button></td>
+            
+       
+    </tr>
+  </tbody>
+</table>
+ <!--Including the pagination control.-->
+ <div class="text-right">
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
+
+
+
+

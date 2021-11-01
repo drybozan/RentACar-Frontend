@@ -1,0 +1,33 @@
+<style>
+    table, th, td {
+      border: 1px solid white;
+      border-collapse: collapse;
+    }
+    th {
+      background-color: bisque;
+    }
+    td {
+      background-color: #e9f3f5;
+    }
+    </style>
+<table class="table">
+    <thead>
+        <tr>
+
+
+            <th>AD</th>
+            <th>SOYAD</th>
+            <th>EMAİL</th>
+            <th>ŞİRKET</th>
+
+        </tr>
+    </thead>
+    <tr *ngFor="let customer of customers">
+        <td>{{customer.firstname}}</td>
+        <td>{{customer.lastname}}</td>
+        <td>{{customer.email}}</td>
+        <td>{{customer.company_name}}</td>
+
+
+    </tr>
+</table>

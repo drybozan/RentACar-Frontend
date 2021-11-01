@@ -1,0 +1,77 @@
+
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Arabayı Güncelle</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="carUpdateForm">
+            <div class="mb-3">
+                <label for="brandId">Marka İsmi :</label>
+                <div class="form-group">
+                    <select class="form-select" id="brandId" formControlName="brand_id"  aria-label="Default select example">
+                        <option *ngFor="let brand of brands" value={{brand.brand_id}}>{{brand.brand_name}}</option>
+                      </select>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="colorId">Renk İsmi :</label>
+                <div class="form-group">
+                    <select class="form-select" id="colorId" formControlName="color_id" aria-label="Default select example">
+                        <option *ngFor="let color of colors" value="{{color.color_id}}">{{color.color_name}}</option>
+                      </select>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="carName">Araba İsmi :</label>
+                <div class="form-group" >
+                    <select class="form-select" id="carName"  formControlName="car_name" aria-label="Default select example">
+                        <option *ngFor="let car of cars" value="{{car.car_name}}">{{car.car_name}}</option>
+                      </select>
+                </div>
+            </div> 
+             <div class="mb-3">
+                <label for="carId">Araba Id :</label>
+                <div class="form-group">
+                    <input 
+                    type="number"
+                    class="form-control" 
+                    formControlName="car_id" 
+                    id="carId"
+                    placeholder="Araba ismini giriniz.">
+                </div>
+            </div> 
+            <div class="mb-3">
+                <label for="modelYear">Model Yılı :</label>
+                <div class="form-group">
+                    <input 
+                    type="number"
+                    class="form-control" 
+                    formControlName="model_year" 
+                    id="modelYear"
+                    placeholder="Model yılını giriniz.">
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="dailyPrice">Günlük Ücreti :</label>
+                <div class="input-group">
+                    <span class="input-group-text">₺</span>
+                    <input 
+                    type="number"
+                    class="form-control" 
+                    formControlName="daily_price" 
+                    id="dailyPrice"
+                    placeholder="Günlük ücreti giriniz.">
+                    <span class="input-group-text">.00</span>
+                </div>
+                
+            </div>
+           
+        </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="setCarUpdateFormValues()" >İptal</button>
+          <button type="button" class="btn btn-success" data-bs-dismiss="modal" (click)="updateCar()">Güncelle</button>
+        </div>
+      </div>
+  

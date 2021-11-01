@@ -1,0 +1,19 @@
+
+    th{
+      border: 2px solid rgb(12, 2, 2);
+      border-collapse: initial;
+      margin-top: auto;
+      color: black;
+      font-size: 15px;
+      background-color: bisque;
+      
+    }
+    td{
+      border: 2px solid rgb(12, 2, 2);
+      border-collapse: initial;
+      color: black;
+      font-size: 18px;
+      background-color: rgb(228, 220, 220);
+      
+    }
+   

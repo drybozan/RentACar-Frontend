@@ -1,0 +1,60 @@
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light"  >
+    <div class="container-fluid"  >
+     <img src="https://www.denizpostasi.com/images/rent-a-car_firmalar%C4%B1_denetleniyor-mu_.jpg" height="100px" width="200px"/>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="http://localhost:4200/cars" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: larger;">ANASAYFA</a>
+          </li>
+          <li  class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" 
+            data-bs-toggle="dropdown" aria-expanded="false" style="font-family:  Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: larger;">
+              ARAÇ DÜZENLE
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">              
+              
+              <li><a class="dropdown-item" href="cars/add" >ARAÇ EKLE</a></li>
+              <li><a class="dropdown-item" href="cars/update" >ARAÇ GÜNCELLE</a></li>
+              <li><a class="dropdown-item" href="cars/delete">ARAÇ SİL</a></li>
+            </ul> 
+          </li>  
+         
+          <app-cart-summary></app-cart-summary>
+          
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="http://localhost:4200/customers"
+             style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: larger;">MÜŞTERİLER</a>           
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="http://localhost:4200/cars/rentals"
+             style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: larger;">KİRALAMALAR</a>           
+          </li>
+        </ul>
+
+       
+       
+        <div class="flex-d button-group" *ngIf="isAuthorizated==false">
+          <button type="button" class="btn btn-outline-light" style="background-color: rgb(108, 145, 97); margin: 4px;" routerLink="/login">GİRİŞ YAP</button>
+          <button type="button" class="btn btn-outline-light"  style="background-color: rgba(255, 94, 1, 0.74) ;margin:5px;"  routerLink="/register">KAYDOL</button>
+        </div>
+
+        <div class="flex-d" *ngIf="isAuthorizated==true" style="margin-right: 50px;">
+          <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="margin-left:2px;">
+              {{userDetails.firstname}} {{userDetails.lastname}}
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" >
+              <li><a class="dropdown-item btn" routerLink="/profile">Profilim</a></li>
+              <li><a class="dropdown-item btn" (click)="logOut()">Çıkış yap</a></li>
+            </ul>
+         </div>
+      </div>
+      </div>
+    </div>
+  </nav>

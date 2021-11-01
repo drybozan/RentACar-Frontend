@@ -1,0 +1,16 @@
+
+ <li  class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
+    data-bs-toggle="dropdown" aria-expanded="false" style="font-family:  Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: larger;">
+      SEPETİNİZ
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+      <li *ngFor="let cartItem of cartItems"><a class="dropdown-item">
+        <span class="badge bg-secondary">{{cartItem.quantity}}</span>{{cartItem.car.car_name}}
+        <span (click)="removeFromCart(cartItem.car)" class="badge bg-secondary">SİL</span></a></li>
+      <li><hr class="dropdown-divider"></li>
+
+    </ul>
+  </li>
+
+

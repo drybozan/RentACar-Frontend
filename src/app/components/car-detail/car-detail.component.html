@@ -1,0 +1,81 @@
+<div style="max-width: 500px; margin: auto; margin-top: 50px;">
+  <h1 style="text-align: center;">Arabayı Kirala</h1>
+  <div style="margin-top: 20px;">
+    <label for="rentDate" class="form-label">Kiralama Tarihi</label>
+    <input type="date" [(ngModel)]="rentDate"  class="form-control" id="rentDate">
+  </div>
+  <div style="margin-top: 20px;">
+    <label for="returnDate" class="form-label">Teslim Etme Tarihi</label>
+    <input type="date" [(ngModel)]="returnDate" class="form-control" id="returnDate">
+  </div>
+<button  type="button" style="margin-top: 20px;" (click)="rentCar(newRental)"  class="btn btn-success">Kirala</button>
+</div>
+<br>
+<br>
+<table class="table">
+  <thead>
+  <tr>
+                <th>ARABA ADI</th>
+                <th>MARKA</th>
+                <th>RENK</th>
+                <th>MODEL</th>
+                <th>GÜNLÜK KİRA BEDELİ</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+
+          <tr *ngFor="let car of carDetails">
+            <td >{{car.car_name}}</td>
+            <td >{{car.brand_name}}</td>
+            <td >{{car.color_name}}</td>
+            <td >{{car.model_year}}</td>
+            <td >{{car.daily_price}}</td>
+
+        </tbody>
+        </table>
+
+
+
+        <br>
+        <br>
+          <div>
+               <div >
+
+                <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                  <div class="carousel-inner" *ngIf="carImages.length!=0 ; else default">
+                    <div class="carousel-item active" *ngIf="carImages[0]">
+                      <img [src]="imageURL + carImages[0].image_path" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item" *ngIf="carImages[1]">
+                      <img [src]="imageURL + carImages[1].image_path" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item" *ngIf="carImages[2]">
+                      <img [src]="imageURL + carImages[2].image_path" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item" *ngIf="carImages[3]">
+                      <img [src]="imageURL + carImages[3].image_path" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item" *ngIf="carImages[4]">
+                      <img [src]="imageURL + carImages[4].image_path" class="d-block w-100" alt="...">
+                    </div>
+                  </div>
+
+                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+                </div>
+
+
+                </div>
+          </div>
+          <ng-template #default>
+            <img src="https://localhost:44307/Uploads/images/default.jpg"  style="height: 100%; width: 100%;"/>
+          </ng-template>
+
